@@ -34,7 +34,8 @@
         background-color: #f8f8f8;
         font-size: 16px;
         width: 500px;
-        height: 300px;
+        min-height: 300px;
+        overflow-y: auto;
       }
     </style>
 
@@ -163,15 +164,20 @@
     <section class="ud-hero" id="home">
       <div class="container">
         <div class="row">
-          <form action="/summarize" method="POST" enctype="multipart/form-data">
+          <form action="/summarize" id="summarize-form" method="POST" enctype="multipart/form-data">
             
             <div class="col">
               <div class="ud-hero-content wow fadeInUp" data-wow-delay=".2s">
-                <div id="wrap"><textarea id="textinp" name="textinp">Paste your text here</textarea></div>
+                
+                {% if inp: %}
+                <div id="wrap"><textarea id="textinp" name="textinp">{{ inp }}</textarea></div>
+                {% else %}
+                <div id="wrap"><textarea id="textinp" name="textinp" placeholder="Paste your text here"></textarea></div>
+                {% endif %}
               </div>
               <ul class="ud-hero-buttons">
                 <li>
-                  <button type="submit" class="btn btn-primary color">
+                  <button type="submit" class="btn btn-primary color btn-submit">
                     summarize
                   </button>
           
@@ -180,6 +186,8 @@
                 <li></li>
               </ul>
             </div>
+
+            
             
           
           

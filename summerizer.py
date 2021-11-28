@@ -15,6 +15,8 @@ def index():
 @app.route('/summarize', methods=['POST'])
 def summarize_text():
     inp=request.form['textinp']
+    if inp == "":
+        inp = "Type something Here to get result"
     
     #scraped_data = urllib.request.urlopen("https://en.wikipedia.org/wiki/Kerala")
     #article = scraped_data.read()

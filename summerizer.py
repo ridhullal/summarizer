@@ -15,8 +15,7 @@ def index():
 @app.route('/summarize', methods=['POST'])
 def summarize_text():
     inp=request.form['textinp']
-    if inp == "":
-        inp = "Type something Here to get result"
+    
     
     #scraped_data = urllib.request.urlopen("https://en.wikipedia.org/wiki/Kerala")
     #article = scraped_data.read()
@@ -67,8 +66,8 @@ def summarize_text():
     summary = ' '.join(summary_sentences)
     print(summary)
     
-
-    return render_template("index.html",summary = summary,inp=inp) 
+    return jsonify('',render_template("output-textarea.html",summary = summary,inp=inp))
+    # return render_template("index.html",summary = summary,inp=inp) 
 
 
 

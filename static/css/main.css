@@ -18,6 +18,7 @@ header {
   background-color: white;
   width: 100%;
   padding: 1em;
+  height: 10vh;
 }
 
 .container {
@@ -43,6 +44,8 @@ a {
 .hero {
   display: flex;
   justify-content: space-around;
+  padding-top: 3em;
+  height: 90vh;
 }
 .hero-text {
   margin-top: 10em;
@@ -83,7 +86,7 @@ a {
 }
 
 .heading h3 {
-  margin: 2em;
+  margin-bottom: 2em;
   font-size: 2rem;
   font-weight: 400;
 }
@@ -268,7 +271,7 @@ input[type="range"]::-webkit-slider-thumb {
     margin: auto;
   }
   .logo-under {
-    margin-top: 2.1em;
+    margin-top: 3.1em;
     width: 7em;
     height: 0.5em;
   }
@@ -288,6 +291,9 @@ input[type="range"]::-webkit-slider-thumb {
 @media (max-width: 550px) {
   #input-textarea {
     width: 25em;
+  }
+  .logo-under {
+    margin-top: 3.1em;
   }
   .input-count {
     margin-left: 24em;

@@ -16,6 +16,8 @@ def index():
 def summarize_text():
     inp=request.form['textinp']
     
+    no_of_words = int(request.form['percent'])
+    
     
     #scraped_data = urllib.request.urlopen("https://en.wikipedia.org/wiki/Kerala")
     #article = scraped_data.read()
@@ -62,7 +64,7 @@ def summarize_text():
     
     #Summary of the article
     import heapq
-    summary_sentences = heapq.nlargest(4, sentence_scores, key=sentence_scores.get)
+    summary_sentences = heapq.nlargest(no_of_words, sentence_scores, key=sentence_scores.get)
     summary = ' '.join(summary_sentences)
     print(summary)
     

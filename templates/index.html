@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Summarizer</title>
+
+  <link rel="stylesheet" href="../static/css/main.css" />
+  <script src="../static/js/main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="../static/js/form.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <a href="/">Summarizer</a>
+      <div class="logo-under"></div>
+    </header>
+
+    <section class="heading">
+      <h3>Feel the power of summarizer !!</h3>
+      <form action="/summarize" class="input-form" id="summarize-form" method="POST" enctype="multipart/form-data">
+        {% if inp: %}
+        <textarea name="textinp" id="input-textarea" cols="30" rows="10">
+{{ inp }}</textarea>
+        {% else %}
+        <textarea name="textinp" id="input-textarea" cols="30" rows="10" required
+          placeholder="Please type somthing here..."></textarea>
+        {% endif %}
+        <input type="range" name="percent" id="input-range" />
+        <button class="submit" id="submit">
+          <span><img src="./static/images/Vector.png" alt="" /></span>
+          Summarize
+        </button>
+        <textarea name="" id="output-textarea" cols="30" rows="10">
+          {{summary}}</textarea>
+      </form>
+    </section>
+
+
+
+
+  </div>
+</body>
+
+</html>

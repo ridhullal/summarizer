@@ -1,7 +1,7 @@
 from flask import Flask, render_template, jsonify, redirect, request, url_for
 import nltk
-# nltk.download('punkt')
-# nltk.download('stopwords')
+#nltk.download('punkt')
+#nltk.download('stopwords')
 
 import bs4 as bs
 import urllib.request
@@ -14,11 +14,16 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
+@app.route("/summarize-text-online")
+def summarizer_page():
+    return render_template("summarizer.html")
+
 
 @app.route('/summarize', methods=['POST'])
 def summarize_text():
     inp = request.form['textinp']
-
+    print(request.form['percent'])
+    print(type(request.form['percent']))
     no_of_words = int(request.form['percent'])
     print(no_of_words)
 
@@ -73,7 +78,7 @@ def summarize_text():
     print(summary)
 
     # return jsonify('', render_template("index.html", summary=summary, inp=inp))
-    return render_template("index.html", summary=summary, inp=inp)
+    return render_template("summarizer.html", summary=summary, inp=inp)
 
 
 if __name__ == "__main__":
